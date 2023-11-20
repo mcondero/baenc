@@ -11,18 +11,18 @@ import (
 )
 
 func getUsername() string {
-	fmt.Print("Digite o nome do usuário: ")
+	fmt.Print("Enter username: ")
 	var username string
 	fmt.Scanln(&username)
 	return username
 }
 
 func getPassword() string {
-	fmt.Print("Digite a senha: ")
+	fmt.Print("Enter password: ")
 
 	bytePassword, err := term.ReadPassword(int(syscall.Stdin))
 	if err != nil {
-		fmt.Println("Erro ao ler a senha.", err)
+		fmt.Println("Error reading password.", err)
 		os.Exit(1)
 	}
 
@@ -40,6 +40,6 @@ func main() {
 	password := getPassword()
 	encoded := returnEncoded(username, password)
 
-	fmt.Println("\nCodificado em base64:")
+	fmt.Println("\nBase64 encoded:")
 	fmt.Println(strings.TrimSpace(encoded))
 }
